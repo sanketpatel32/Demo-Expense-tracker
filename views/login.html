@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Expense Tracker</title>
+  <link rel="stylesheet" href="/css/login.css" />
+  <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login to Expense Tracker</h2>
+    <form onsubmit="handleUserLogin(event)">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required />
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required />
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p id="loginError" class="error-msg"></p>
+
+    <div class="links">
+      <a href="/password">Forgot password?</a>
+      <span>|</span>
+      <a href="/user/signup">Create new account</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

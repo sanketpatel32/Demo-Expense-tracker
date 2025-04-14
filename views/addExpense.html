@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Expense</title>
+  <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, select, button {
+      margin: 5px;
+      padding: 8px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    #leaderboard_container {
+      margin-top: 30px;
+    }
+  </style> -->
+</head>
+<body>
+
+  <form onsubmit="handleAddExpense(event)">
+    <h2>Add Expense</h2>
+
+    <div id="premiumuser_container">
+      <button type="button" id="renderBtn">Pay Now</button>
+      <h3 id="premiumuser"></h3>
+    </div>
+
+    <br />
+    <label for="amount">Enter the amount</label>
+    <input type="text" name="amount" id="amount" required />
+
+    <label for="description">Add description</label>
+    <input type="text" name="description" id="description" required />
+
+    <label for="category">Category</label>
+    <select name="category" id="category">
+      <option value="food">Food</option>
+      <option value="transport">Transport</option>
+      <option value="entertainment">Entertainment</option>
+      <option value="petrol">Petrol</option>
+      <option value="other">Other</option>
+    </select>
+
+    <button type="submit">Add</button>
+  </form>
+
+  <br />
+  <label for="expensesPerPage">Expenses per page:</label>
+  <select id="expensesPerPage" onchange="handleExpensesPerPageChange()">
+    <option value="2">2</option>
+    <option value="5" selected>5</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+  </select>
+
+  <div id="expense-list"></div> <!-- Table will be rendered here -->
+  <div id="leaderboard_container"></div>
+
+  <!-- Scripts -->
+  <script src="/js/cashfreeWeb_self.js"></script>             
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/js/addExpense.js"></script>
+</body>
+</html>

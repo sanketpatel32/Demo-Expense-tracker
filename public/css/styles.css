@@ -1,0 +1,25 @@
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input, select, button {
+      margin: 5px;
+      padding: 8px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    #leaderboard_container {
+      margin-top: 30px;
+    }
+  
