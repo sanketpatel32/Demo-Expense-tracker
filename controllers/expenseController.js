@@ -1,12 +1,13 @@
+const sequelize = require("../utils/database");
+
+const { uploadToS3 } = require('../services/aws');
+
 const Expense = require('../models/expenseModel');
 const User = require('../models/userModel');
-const sequelize = require("../utils/database");
-const { uploadToS3 } = require('../services/aws');
-// const uploadToS3 = require('../services/aws');
-// const AWS = require('aws-sdk');
 const downloadTable = require('../models/downloadTable');
-const dotenv = require('dotenv'); 
-dotenv.config();
+
+require('dotenv').config(); 
+
 const addExpense = async (req, res) => {
     const { amount, description, category } = req.body;
     const userId = req.user.userId;

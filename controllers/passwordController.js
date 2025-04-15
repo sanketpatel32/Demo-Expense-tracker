@@ -1,20 +1,22 @@
 const { v4: uuidv4 } = require('uuid');
 const Sib = require('sib-api-v3-sdk');
-require('dotenv').config();
-const path = require('path');
-const resetPasswordModel = require('../models/passwordRequestModel');
-const userModel = require('../models/userModel');
 const bcrypt = require('bcrypt');
+const path = require('path');
+require('dotenv').config();
+
 const client = Sib.ApiClient.instance;
 const apiKey = client.authentications['api-key'];
 apiKey.apiKey = process.env.BREVO_API_KEY;
+
+const userModel = require('../models/userModel');
+const resetPasswordModel = require('../models/passwordRequestModel');
 
 const tranEmailApi = new Sib.TransactionalEmailsApi();
 
 // Sender Info (must be verified in Brevo)
 const sender = {
-    email: 'ssddpatel323@gmail.com',
-    name: 'Siddharth Patel'
+    email: process.env.SENDER_EMAIL,
+    name: 'Tech Support by Sanket'
 };
 
 const resetPasswordLink = async (req, res) => {
