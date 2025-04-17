@@ -241,7 +241,8 @@ const checkPremiumUser = () => {
                 // Create a temporary anchor element to trigger the download
                 const a = document.createElement('a');
                 a.href = response.data.fileURL; 
-                a.download = 'expenses.txt';
+                a.setAttribute('download', 'expenses.txt'); // ✅ Forces download
+                a.setAttribute('target', '_blank');    
                 document.body.appendChild(a); 
                 a.click();
               })
