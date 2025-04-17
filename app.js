@@ -49,6 +49,7 @@ sequelize.sync({force : false}) // Set force to true only for development/testin
 .then(() => {
   app.listen(process.env.PORT || 3000, () => {
     console.log(`Example app listening on port ${process.env.PORT}`);
+    console.log('Database synced successfully!');
   });
 })
 .catch(err => {
