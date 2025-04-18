@@ -60,7 +60,7 @@ const resetPassword = async (req, res) => {
     const htmlContent = `<p>To reset your password, please click the link below:</p>
     <br>
     <h1>
-    <a href="http://13.233.159.232/password/resetpassword/${uniqueId}">Reset Password</a>
+    <a href="http://13.233.69.81/password/resetpassword/${uniqueId}">Reset Password</a>
     </h1>
     `;
 

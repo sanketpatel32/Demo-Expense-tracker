@@ -8,7 +8,7 @@ document.getElementById("renderBtn").addEventListener("click", async () => {
 try {
   
   // Fetch payment session ID from backend
-  const response = await axios.post("http://13.233.159.232/pay/",{}, {
+  const response = await axios.post("http://13.233.69.81/pay/",{}, {
     headers: { Authorization: `Bearer ${token}` }
 });
   // console.log(data)
@@ -39,7 +39,7 @@ console.log("User has closed the popup or there is some payment error, Check for
     console.log("Payment has been completed, Check for Payment Status");
     
     try {
-      const response = await axios.get(`http://13.233.159.232/pay/${orderId}`, {
+      const response = await axios.get(`http://13.233.69.81/pay/${orderId}`, {
         headers: { Authorization: `Bearer ${token}` }
     });
       const data = response.data;

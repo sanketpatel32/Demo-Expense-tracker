@@ -29,7 +29,7 @@ exports.createOrder = async (
 
       order_meta: {
         // "return_url": "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}",
-        return_url: `http://13.233.159.232/pay/${orderId}`, //? calling getPaymentStatus
+        return_url: `http://13.233.69.81/pay/${orderId}`, //? calling getPaymentStatus
         payment_methods: "ccc, upi, nb"
       },
       order_expiry_time: formattedExpiryDate, //!? Set the valid expiry date
