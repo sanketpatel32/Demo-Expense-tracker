@@ -89,7 +89,7 @@ exports.getPaymentStatus_ = async (req, res) => {
         <p>Order ID: ${order.orderId}</p>
         <p>Status: ${order.paymentStatus}</p>
         <p>Amount: ${order.orderAmount}</p>
-                  <a href="/">Go to Expense Page</a> 
+                  <a href="/expense">Go to Expense Page</a> 
       </body>
     </html>
   `;

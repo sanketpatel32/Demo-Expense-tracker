@@ -142,7 +142,12 @@ const userId = req.user.userId; // Extract userId from JWT
 try {
     const expenses = await Expense.findAll({ where: { userId } });
     const strigifiedExpenses = JSON.stringify(expenses); 
-    const filename = `Expense${userId}/${new Date()}.txt`; // Set the filename for the downloaded file
+    const formatDate = (date) => {
+        return date.toISOString().replace(/:/g, '-'); // Replaces colons with dashes
+      };
+      
+      const filename = `Expense${userId}/expense_${formatDate(new Date())}.txt`;
+      
     // const filename = `Expense${userId}/${new Date()}.txt`; // Set the filename for the downloaded file
     const fileURL = await uploadToS3(strigifiedExpenses, filename); // Upload the file to S3 and get the URL
     // console.log("File URL: ",fileURL)

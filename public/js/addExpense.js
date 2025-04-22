@@ -1,4 +1,4 @@
-const baseurl = "http://13.233.69.81";
+const baseurl = "http://13.233.69.81:3000";
 const token = localStorage.getItem("token");
 
 if (!token) {
@@ -237,19 +237,25 @@ const checkPremiumUser = () => {
             axios.get(`${baseurl}/expense/download`, {
               headers: { Authorization: `Bearer ${token}` }
             })
-              .then((response) => {
-                // Create a temporary anchor element to trigger the download
-                const a = document.createElement('a');
-                a.href = response.data.fileURL; 
-                a.setAttribute('download', 'expenses.txt'); // ✅ Forces download
-                a.setAttribute('target', '_blank');    
-                document.body.appendChild(a); 
-                a.click();
-              })
-              .catch((error) => {
-                console.error("Error downloading expenses:", error);
-                alert("Failed to download expenses.");
-              });
+            .then((response) => {
+              const fileURL = response.data.fileURL;
+            
+              if (!fileURL) {
+                throw new Error("No file URL received from server.");
+              }
+            
+              const a = document.createElement('a');
+              a.href = fileURL;
+              a.setAttribute('download', 'expenses.txt');
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            })
+            .catch((error) => {
+              console.error("Error downloading expenses:", error);
+              alert("Failed to download expenses.");
+            });
+            
           }
           container.appendChild(downloadBtn);
         }

@@ -14,6 +14,7 @@ function uploadToS3(data, filename) {
         Body: data,
         ContentType: 'text/plain',
         ACL: 'public-read', // Make the file publicly readable
+        ContentDisposition: 'attachment',
     };
 
     return new Promise((resolve, reject) => {
