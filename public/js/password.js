@@ -1,4 +1,4 @@
-const baseurl = "http://13.233.69.81:3000";
+const baseurl = "http://13.233.69.81";
 
 const passwordReset = async (event) => {
     event.preventDefault();
